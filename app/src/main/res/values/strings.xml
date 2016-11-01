@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">IsoChrono</string>
+    <string name="n_set">Nº séries</string>
+    <string name="i_set">Tempo entre séries</string>
+    <string name="n_rep">Nº repetições</string>
+    <string name="t_rep">Tempo por repetição</string>
+    <string name="i_rep">Tempo entre repetições</string>
+    <string name="begin_exercise">Começar Treino</string>
+    <string name="set">Série</string>
+    <string name="rep">Repetição</string>
+    <string name="exercise">Exercício</string>
+    <string name="interval">Intervalo</string>
+    <string name="finished">Fim</string>
+</resources>
