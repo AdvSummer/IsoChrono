@@ -18,6 +18,7 @@ public class ExerciseActivity extends AppCompatActivity {
     private TextView timer;
 
     private MediaPlayer repSound;
+    private MediaPlayer stopSound;
     private MediaPlayer setIntervalSound;
     private MediaPlayer exerciseEndSound;
 
@@ -47,6 +48,7 @@ public class ExerciseActivity extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.timer);
 
         repSound = MediaPlayer.create(this, R.raw.one_beep);
+        stopSound = MediaPlayer.create(this, R.raw.stop);
         setIntervalSound = MediaPlayer.create(this, R.raw.two_beep);
         exerciseEndSound = MediaPlayer.create(this, R.raw.three_beep);
 
@@ -59,7 +61,20 @@ public class ExerciseActivity extends AppCompatActivity {
         set = 1;
         rep = 1;
 
-        exercise();
+        begin();
+    }
+
+    private void begin() {
+        new CountDownTimer(5000, 1000) {
+            @Override
+            public void onTick(long l) {
+            }
+
+            @Override
+            public void onFinish() {
+                exercise();
+            }
+        }.start();
     }
 
     private void exercise() {
@@ -86,7 +101,7 @@ public class ExerciseActivity extends AppCompatActivity {
             public void onFinish() {
                 rep++;
                 if (rep <= n_rep) {
-                    repSound.start();
+                    stopSound.start();
                     v.vibrate(150);
                     timerState.setText(R.string.interval);
                     repInterval();
